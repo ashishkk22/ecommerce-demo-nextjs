@@ -10,11 +10,12 @@ const config: Config = {
     extend: {
       colors: {
         primary: "#fa5252",
-        secondary: "#FFD700",
+        secondary: "#ced4da",
         background: "#f5f5f5",
         surface: "#FFFFFF",
-        textPrimary: "#333333",
-        textSecondary: "#666666",
+
+        textPrimary: "#70544f",
+        textSecondary: "#121212",
         success: "#28A745",
         error: "#DC3545",
         warning: "#FFC107",
