@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <Header>
       <Header.Brand>
-        <Typography variant={"h2"} className="text-primary" weight={"bold"} as={"h2"}>
+        <Typography variant={"h2"} className="text-primary" weight={"bold"}>
           NexBuy
         </Typography>
       </Header.Brand>
