@@ -1,10 +1,16 @@
 import React from "react";
 import { Button } from "@/components/Button";
 import { Header } from "@/components/Header";
+import { Typography } from "@/components/Typography";
+
 const Navbar = () => {
   return (
     <Header>
-      <Header.Brand className="text-h1 font-bold">E-commerce Store</Header.Brand>
+      <Header.Brand>
+        <Typography variant={"h2"} className="text-primary" weight={"bold"} as={"h2"}>
+          NexBuy
+        </Typography>
+      </Header.Brand>
       <Header.Action>
         <Button variant={"solid"}>Login</Button>
       </Header.Action>
