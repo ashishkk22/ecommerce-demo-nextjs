@@ -4,6 +4,7 @@ import bcrypt from "bcrypt";
 
 dbConnect();
 
+//TODO: add the Typescript
 export async function GET() {
   const users = await User.find({}).sort({ _id: -1 });
 
@@ -45,7 +46,7 @@ export async function POST(request) {
       JSON.stringify({
         success: true,
         status: 200,
-        user: { email: user?.email },
+        user: { email: user?.email, id: user?.id },
       }),
     );
   } else {

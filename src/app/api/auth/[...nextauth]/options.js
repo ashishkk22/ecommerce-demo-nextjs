@@ -1,9 +1,9 @@
-import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 const baseURL = process.env.NEXT_PUBLIC_HOSTNAME + "login";
 
-export const options: NextAuthOptions = {
+//TODO: add the Typescript
+export const options = {
   session: {
     strategy: "jwt",
   },

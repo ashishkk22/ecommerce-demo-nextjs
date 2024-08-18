@@ -4,6 +4,7 @@ import bcrypt from "bcrypt";
 
 dbConnect();
 
+//TODO: add the Typescript
 export async function POST(request) {
   const { email, password } = await request.json();
 
@@ -22,7 +23,6 @@ export async function POST(request) {
   const users = await User.create({ email, password: hashedPassword });
 
   let data = JSON.stringify(users);
-  console.log("users ", users);
   return new Response(data, {
     status: 200,
   });
