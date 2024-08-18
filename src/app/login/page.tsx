@@ -1,10 +1,12 @@
 "use client";
 import React, { FormEvent, useState } from "react";
+import toast from "react-hot-toast";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
 import { Typography } from "@/components/Typography";
+import { MESSAGES } from "@/types/messages";
 
 const Login = () => {
   const router = useRouter();
@@ -17,15 +19,20 @@ const Login = () => {
   const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      signIn("credentials", {
+      const res = await signIn("credentials", {
         email: userInfo.email,
         password: userInfo.password,
         redirect: false,
       });
 
-      router.push("/");
-    } catch (err: unknown) {
-      console.log(err);
+      if (res?.status === 400 || res?.status === 401 || res?.status === 403 || res?.status === 500) {
+        toast.error(MESSAGES.LOGIN_ERROR);
+      } else {
+        router.push("/");
+        toast.success(MESSAGES.LOGIN_SUCCESS);
+      }
+    } catch {
+      toast.error(MESSAGES.LOGIN_ERROR);
     }
   };
 

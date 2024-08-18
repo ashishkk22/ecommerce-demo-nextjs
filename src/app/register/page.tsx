@@ -5,6 +5,8 @@ import { Typography } from "@/components/Typography";
 import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
 import { register } from "@/utils";
+import toast from "react-hot-toast";
+import { MESSAGES } from "@/types/messages";
 
 const Login = () => {
   const router = useRouter();
@@ -23,8 +25,9 @@ const Login = () => {
       });
 
       router.push("/");
-    } catch (err: unknown) {
-      console.log(err);
+      toast.success(MESSAGES.REGISTER_SUCCESS);
+    } catch {
+      toast.success(MESSAGES.INTERNAL_ERROR);
     }
   };
 
