@@ -18,15 +18,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Providers>
-        <body className={`min-h-screen flex flex-col ${inter.className}`}>
+      <body className={`min-h-screen flex flex-col ${inter.className}`}>
+        <Providers>
           <Navbar />
           <div className="flex-1 flex">
             <div className="w-full">{children}</div>
           </div>
           <Footer />
-        </body>
-      </Providers>
+        </Providers>
+      </body>
     </html>
   );
 }
