@@ -17,7 +17,6 @@ export async function POST(request) {
 
   // Hash the password before storing it in the database
   const hashedPassword = await bcrypt.hash(password, 10);
-  console.log("Data ", email, "   ", password, "   ", hashedPassword);
 
   // If user is created successfully, return a success message
   const users = await User.create({ email, password: hashedPassword });
