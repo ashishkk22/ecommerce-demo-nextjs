@@ -36,7 +36,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/api/login/route.js",
-    "src/db/config/dbConnect.js"
+    "src/db/config/dbConnect.js",
+    "next-auth.d.ts"
     ],
   "exclude": [
     "node_modules"
