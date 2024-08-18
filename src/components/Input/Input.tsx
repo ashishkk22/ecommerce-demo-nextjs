@@ -50,7 +50,7 @@ export const Input = ({
   ...props
 }: InputProps) => {
   return (
-    <div className="flex flex-col gap-2">
+    <div className={cn("flex flex-col gap-2", props.className)}>
       {label && (
         <label htmlFor={name} className="text-sm text-gray-600">
           {label}

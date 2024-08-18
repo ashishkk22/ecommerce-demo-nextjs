@@ -48,7 +48,7 @@ export const inputStyle = cva([
   "h-8",
   "md:h-10",
   "bg-transparent",
-  "text-sm",
+  "text-base",
   "placeholder:text-muted-foreground",
   "focus:outline-none",
   "disabled:cursor-not-allowed",
