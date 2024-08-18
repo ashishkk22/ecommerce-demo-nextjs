@@ -1,3 +1,5 @@
+import { CartType } from "@/db/models/cart";
+import { CouponType } from "@/db/models/coupon";
 import axios from "axios";
 import Cookies from "js-cookie";
 
@@ -114,3 +116,32 @@ export const getPosts = async () => API.get<PostType[]>("/posts", { withoutAuth:
 export const createPost = (body: { heading: string; content: string }) => API.post("/item/create", body);
 
 export const register = (body: { email: string; password: string }) => API.post("register", body);
+
+export const getProduct = async () => API.get("product").then((res) => res.data);
+
+export type AddToCartBody = {
+  userId: string;
+  productId: string;
+  quantity: number;
+};
+
+export const addToCart = async (body: AddToCartBody) =>
+  API.post<{ cart: CartType }>("cart", body).then((res) => res.data);
+
+export const getCart = async (userId: string) =>
+  API.get<{ cart: CartType }>(`cart?userId=${userId}`).then((res) => res.data);
+
+export const getCoupon = async () => API.get<{ coupons: CouponType[] }>("coupon").then((res) => res.data);
+
+export type ApplyCouponBody = {
+  userId: string;
+  couponCode: string;
+};
+
+export const applyCoupon = async (body: ApplyCouponBody) => API.post("coupon", body).then((res) => res.data);
+
+export type OrderCheckoutBody = {
+  userId: string;
+};
+
+export const orderCheckout = async (body: OrderCheckoutBody) => API.post("checkout", body).then((res) => res.data);
