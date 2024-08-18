@@ -38,7 +38,7 @@
     "src/app/api/login/route.js",
     "src/db/config/dbConnect.js",
     "next-auth.d.ts"
-    ],
+, "src/app/api/auth/[...nextauth]/route.js", "src/app/api/auth/[...nextauth]/options.js"    ],
   "exclude": [
     "node_modules"
   ]
