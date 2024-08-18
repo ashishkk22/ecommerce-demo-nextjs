@@ -3,7 +3,11 @@ import FeaturedProduct from "./components/FeaturedProduct/FeaturedProduct";
 
 const getProducts = async () => {
   try {
-    const { products } = await fetch(process.env.NEXT_PUBLIC_HOSTNAME + "product").then((res) => res.json());
+    const { products } = await fetch(process.env.NEXT_PUBLIC_HOSTNAME + "product", { cache: "no-store" }).then((res) =>
+      res.json(),
+    );
+
+    console.log("hey this is calling");
     return products as ProductType[];
   } catch {
     return [];
