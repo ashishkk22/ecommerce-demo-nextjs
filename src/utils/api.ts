@@ -30,7 +30,7 @@ declare module "axios" {
 }
 
 export const API = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
+  baseURL: process.env.NEXT_PUBLIC_HOSTNAME,
   withoutAuth: false,
   headers: {
     "Content-Type": "application/json",
@@ -112,3 +112,5 @@ export const getPosts = async () => API.get<PostType[]>("/posts", { withoutAuth:
 
 //create post
 export const createPost = (body: { heading: string; content: string }) => API.post("/item/create", body);
+
+export const register = (body: { email: string; password: string }) => API.post("register", body);
